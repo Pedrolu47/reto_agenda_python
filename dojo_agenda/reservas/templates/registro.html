@@ -1,0 +1,27 @@
+<!-- templates/registro.html -->
+{% load static %}  <!-- Carga los archivos estáticos -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">  <!-- Vincula el archivo CSS -->
+</head>
+<body>
+    <h2>Crear una cuenta</h2>
+
+    <!-- Formulario de registro -->
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- Mostrar el formulario de registro -->
+        {{ form.as_p }}
+
+        <button type="submit">Registrar</button>
+    </form>
+
+    <!-- Enlace a la página de login si ya tiene cuenta -->
+    <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión aquí</a></p>
+</body>
+</html>

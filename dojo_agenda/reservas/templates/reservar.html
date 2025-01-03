@@ -1,0 +1,23 @@
+<!-- templates/reservar.html -->
+ {% load static %}  <!-- Carga los archivos estáticos -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Espacio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">  <!-- Vincula el archivo CSS -->
+</head>
+<body>
+    <h2>Realizar una nueva reserva</h2>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Formulario para la creación de reservas -->
+
+        <button type="submit">Reservar</button>
+    </form>
+
+    <p><a href="{% url 'consultar_reservas' %}">Consultar mis reservas</a></p>
+</body>
+</html>

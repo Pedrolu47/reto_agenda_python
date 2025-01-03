@@ -1,0 +1,23 @@
+<!-- templates/login.html -->
+{% load static %}  <!-- Carga los archivos estáticos -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">  <!-- Vincula el archivo CSS -->
+</head>
+<body>
+    <h2>Iniciar sesión</h2>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Mostrar el formulario de inicio de sesión -->
+        
+        <button type="submit">Iniciar sesión</button>
+    </form>
+    
+    <p>¿No tienes cuenta? <a href="{% url 'registro' %}">Regístrate aquí</a></p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- home.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Principal</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">  <!-- Vincula el archivo CSS -->
+</head>
+<body>
+    <h1>Bienvenidos a la Escuela de Samuráis Dojo</h1>
+    <p>Desde aquí podrás gestionar las reservas de espacios.</p>
+    <a href="{% url 'login' %}">Iniciar sesión</a>
+    <a href="{% url 'registro' %}">Registrar cuenta</a>
+</body>
+</html>

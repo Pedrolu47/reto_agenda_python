@@ -1,0 +1,28 @@
+<!-- templates/consultar_reservas.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Reservas</title>
+</head>
+<body>
+    <h2>Mis reservas</h2>
+    
+    {% if reservas %}
+        <ul>
+        {% for reserva in reservas %}
+            <li>
+                <strong>Espacio:</strong> {{ reserva.espacio.nombre }}<br>
+                <strong>Fecha y hora:</strong> {{ reserva.fecha }}<br>
+                <a href="{% url 'eliminar_reserva' reserva.id %}">Eliminar reserva</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tienes reservas futuras.</p>
+    {% endif %}
+    
+    <p><a href="{% url 'reservar' %}">Realizar una nueva reserva</a></p>
+</body>
+</html>
